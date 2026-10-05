@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "uz.smartide" "\0"
-            VALUE "FileDescription", "smartide" "\0"
+            VALUE "CompanyName", "SmartIDE" "\0"
+            VALUE "FileDescription", "SmartIDE - modern code editor" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "smartide" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 uz.smartide. All rights reserved." "\0"
-            VALUE "OriginalFilename", "smartide.exe" "\0"
-            VALUE "ProductName", "smartide" "\0"
+            VALUE "InternalName", "SmartIDE" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 SmartIDE contributors" "\0"
+            VALUE "OriginalFilename", "SmartIDE.exe" "\0"
+            VALUE "ProductName", "SmartIDE" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

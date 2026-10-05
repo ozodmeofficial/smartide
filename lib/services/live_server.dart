@@ -83,13 +83,11 @@ class LiveServer extends ChangeNotifier {
   }
 
   static void openInBrowser(String url) {
-    if (Platform.isWindows) {
-      Process.run('rundll32', ['url.dll,FileProtocolHandler', url]);
-    } else if (Platform.isMacOS) {
-      Process.run('open', [url]);
-    } else {
-      Process.run('xdg-open', [url]);
-    }
+    final Future<ProcessResult> f = Platform.isWindows
+        ? Process.run('rundll32', ['url.dll,FileProtocolHandler', url])
+        : Process.run(Platform.isMacOS ? 'open' : 'xdg-open', [url]);
+    // Opening a browser is best effort; never surface an unhandled error.
+    f.then((_) {}, onError: (Object _) {});
   }
 
   void _broadcastReload() {

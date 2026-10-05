@@ -92,8 +92,7 @@ class _Section extends StatelessWidget {
     final IdeTheme t = context.t;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Row(children: [
-        Text(title, style: serifText(t, size: 20)),
-        const Spacer(),
+        Expanded(child: Text(title, style: serifText(t, size: 20), overflow: TextOverflow.ellipsis)),
         ?trailing,
       ]),
       const SizedBox(height: 12),

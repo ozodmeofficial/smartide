@@ -82,7 +82,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Row(children: [
                         Icon(e.value.$2, size: 17, color: _cat == e.key ? t.accent : t.textMuted),
                         const SizedBox(width: 10),
-                        Text(e.value.$1, style: uiText(t, size: 13.5, color: _cat == e.key ? t.text : t.textMuted, weight: _cat == e.key ? FontWeight.w600 : null)),
+                        Expanded(child: Text(e.value.$1, overflow: TextOverflow.ellipsis, style: uiText(t, size: 13.5, color: _cat == e.key ? t.text : t.textMuted, weight: _cat == e.key ? FontWeight.w600 : null))),
                       ]),
                     ),
                 ]),

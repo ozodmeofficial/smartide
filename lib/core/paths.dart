@@ -6,9 +6,12 @@ import 'package:path/path.dart' as p;
 class AppPaths {
   AppPaths._();
 
-  static late final String dataDir;
+  static String? _dataDir;
+  static String get dataDir => _dataDir!;
+  static set dataDir(String v) => _dataDir = v;
 
   static Future<void> init() async {
+    if (_dataDir != null) return;
     final Map<String, String> env = Platform.environment;
     String base;
     if (Platform.isWindows) {

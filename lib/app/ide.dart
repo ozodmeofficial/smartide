@@ -955,7 +955,7 @@ class Ide extends ChangeNotifier {
       Command(id: 'workbench.action.previousEditor', title: 'Open Previous Editor', category: 'View', run: () => workspace.cycleTab(-1)),
       Command(id: 'workbench.action.splitEditor', title: 'Split Editor', category: 'View', run: workspace.splitEditor),
       Command(id: 'workbench.action.newWindow', title: 'New Window', category: 'File', run: () {
-        Process.start(Platform.resolvedExecutable, [], mode: ProcessStartMode.detached);
+        Process.start(Platform.resolvedExecutable, [], mode: ProcessStartMode.detached).then((_) {}, onError: (Object _) {});
       }),
       Command(id: 'workbench.action.quit', title: 'Exit', category: 'File', run: () => windowManager.close()),
       Command(id: 'editor.action.addSelectionToNextFindMatch', title: 'Select Next Occurrence', category: 'Selection', run: selectNextOccurrence),
@@ -1029,13 +1029,15 @@ class Ide extends ChangeNotifier {
   }
 
   static void revealInOs(String path) {
+    final Future<ProcessResult> f;
     if (Platform.isWindows) {
-      Process.run('explorer', ['/select,', path]);
+      f = Process.run('explorer', ['/select,', path]);
     } else if (Platform.isMacOS) {
-      Process.run('open', ['-R', path]);
+      f = Process.run('open', ['-R', path]);
     } else {
-      Process.run('xdg-open', [p.dirname(path)]);
+      f = Process.run('xdg-open', [p.dirname(path)]);
     }
+    f.then((_) {}, onError: (Object _) {});
   }
 
   /// Workbench commands that keep working while the terminal has focus

@@ -85,14 +85,23 @@ class GitService extends ChangeNotifier {
   }
 
   Future<ProcessResult> _git(List<String> args, {bool log = true}) async {
-    final ProcessResult r = await Process.run(
-      'git',
-      ['-c', 'core.quotepath=false', '-c', 'color.ui=false', ...args],
-      workingDirectory: _root,
-      environment: {'GIT_TERMINAL_PROMPT': '0', 'LC_ALL': 'C.UTF-8'},
-      stdoutEncoding: const SystemEncodingUtf8(),
-      stderrEncoding: const SystemEncodingUtf8(),
-    );
+    ProcessResult r;
+    try {
+      final String? root = _root;
+      if (root != null && !await Directory(root).exists()) {
+        return ProcessResult(0, 128, '', 'folder no longer exists');
+      }
+      r = await Process.run(
+        'git',
+        ['-c', 'core.quotepath=false', '-c', 'color.ui=false', ...args],
+        workingDirectory: root,
+        environment: {'GIT_TERMINAL_PROMPT': '0', 'LC_ALL': 'C.UTF-8'},
+        stdoutEncoding: const SystemEncodingUtf8(),
+        stderrEncoding: const SystemEncodingUtf8(),
+      );
+    } on ProcessException catch (e) {
+      r = ProcessResult(0, 127, '', e.message);
+    }
     if (log) {
       output.append('Git', '> git ${args.join(' ')}');
       if (r.exitCode != 0) output.append('Git', '${r.stderr}');
