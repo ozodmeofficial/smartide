@@ -86,7 +86,8 @@ class Toolchain extends ChangeNotifier {
         final ProcessResult r = await Process.run(exe, t.versionArgs, runInShell: Platform.isWindows)
             .timeout(const Duration(seconds: 6));
         final String out = '${r.stdout}\n${r.stderr}'.trim();
-        final RegExpMatch? m = RegExp(r'(\d+\.\d+(\.\d+)?)').firstMatch(out);
+        final RegExpMatch? m = RegExp(r'(?:version|v|go)\s*"?(\d+\.\d+(\.\d+)?)', caseSensitive: false).firstMatch(out) ??
+            RegExp(r'(\d+\.\d+(\.\d+)?)').firstMatch(out);
         t.version = m?.group(1) ?? out.split('\n').first;
       } catch (_) {
         t.version = '?';

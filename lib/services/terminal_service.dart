@@ -180,12 +180,15 @@ class TerminalService extends ChangeNotifier {
       pty.exitCode.then((code) {
         s.exited = true;
         s.exitCode = code;
-        final String color = code == 0 ? '32' : '31';
+        // -999999: exit status unknown (child reaped by another waiter).
+        final bool unknown = code == -999999;
+        final String color = code == 0 || unknown ? '32' : '31';
+        final String codeText = unknown ? '' : ' with exit code $code';
         final String msg = s.isTask
-            ? '\r\n\x1b[${color}m● Process finished with exit code $code\x1b[0m  \x1b[2m(${DateTime.now().difference(s.started).inMilliseconds} ms)\x1b[0m\r\n'
-            : '\r\n\x1b[2m[Process exited with code $code]\x1b[0m\r\n';
+            ? '\r\n\x1b[${color}m● Process finished$codeText\x1b[0m  \x1b[2m(${DateTime.now().difference(s.started).inMilliseconds} ms)\x1b[0m\r\n'
+            : '\r\n\x1b[2m[Process exited$codeText]\x1b[0m\r\n';
         s.terminal.write(msg);
-        onExit?.call(code);
+        onExit?.call(unknown ? 0 : code);
         notifyListeners();
       });
       s.terminal.onOutput = (data) => s.write(data);

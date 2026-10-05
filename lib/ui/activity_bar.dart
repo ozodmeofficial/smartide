@@ -17,7 +17,7 @@ class ActivityBar extends StatelessWidget {
     final GitService git = context.watch<GitService>();
     Widget item(SideView v, IconData icon, IconData activeIcon, String tip, {int badge = 0}) {
       final bool sel = ide.sidebarVisible && ide.sideView == v;
-      return _ActivityItem(icon: sel ? activeIcon : icon, tooltip: tip, selected: sel, badge: badge, onTap: () => ide.showView(v));
+      return _ActivityItem(icon: sel ? activeIcon : icon, tooltip: tip, selected: sel, badge: badge, onTap: () => ide.showView(v, toggle: true));
     }
 
     return Container(

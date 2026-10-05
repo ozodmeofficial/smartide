@@ -152,7 +152,7 @@ class _ActionCard extends StatelessWidget {
       onTap: onTap,
       radius: 12,
       child: Container(
-        width: 190,
+        width: 176,
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: t.border)),
         child: Row(children: [
@@ -206,7 +206,7 @@ class _Templates extends StatelessWidget {
             onTap: () => _create(context, tpl),
             radius: 10,
             child: Container(
-              width: 178,
+              width: 236,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: t.border)),
               child: Row(children: [

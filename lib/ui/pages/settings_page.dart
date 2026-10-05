@@ -220,7 +220,7 @@ class _Row extends StatelessWidget {
     final IdeTheme t = context.t;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(border: Border(bottom: BorderSide(color: t.border.withValues(alpha: 0.6)))),
+      decoration: BoxDecoration(border: Border(bottom: BorderSide(color: t.border))),
       child: Row(children: [
         Expanded(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

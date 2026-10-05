@@ -1,3 +1,4 @@
+#include <errno.h>
 
 #include <stdint.h>
 #include <stdio.h>
@@ -110,11 +111,22 @@ static void *wait_exit_thread(void *arg)
 {
     WaitExitOptions *options = (WaitExitOptions *)arg;
 
-    int status;
+    int status = 0;
 
-    waitpid(options->pid, &status, 0);
+    // SmartIDE patch: retry on EINTR and report an "unknown" exit code when
+    // the child was already reaped elsewhere (the Dart VM's SIGCHLD handler
+    // can do this), instead of posting an uninitialised status.
+    pid_t r;
+    do
+    {
+        r = waitpid(options->pid, &status, 0);
+    } while (r == -1 && errno == EINTR);
 
-    if (WIFEXITED(status))
+    if (r == -1)
+    {
+        Dart_PostInteger_DL(options->port, -999999);
+    }
+    else if (WIFEXITED(status))
     {
         Dart_PostInteger_DL(options->port, WEXITSTATUS(status));
     }

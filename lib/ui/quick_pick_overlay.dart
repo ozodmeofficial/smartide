@@ -239,22 +239,25 @@ class _QuickPickOverlayState extends State<QuickPickOverlay> {
           child: Row(children: [
             if (it.badge != null) ...[LanguageBadge(badge: it.badge!, color: it.iconColor ?? t.accent, size: 16), const SizedBox(width: 10)]
             else if (it.icon != null) ...[Icon(it.icon, size: 15, color: it.iconColor ?? t.textMuted), const SizedBox(width: 10)],
-            Flexible(
-              child: RichText(
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                text: TextSpan(style: uiText(t, size: 13.5), children: [
-                  for (int c = 0; c < it.label.length; c++)
-                    TextSpan(text: it.label[c], style: hits.contains(c) ? TextStyle(color: t.accent, fontWeight: FontWeight.w700) : null),
-                ]),
-              ),
+            Expanded(
+              child: Row(children: [
+                Flexible(
+                  child: RichText(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    text: TextSpan(style: uiText(t, size: 13.5), children: [
+                      for (int c = 0; c < it.label.length; c++)
+                        TextSpan(text: it.label[c], style: hits.contains(c) ? TextStyle(color: t.accent, fontWeight: FontWeight.w700) : null),
+                    ]),
+                  ),
+                ),
+                if (it.description != null && it.description!.isNotEmpty) ...[
+                  const SizedBox(width: 10),
+                  Flexible(child: Text(it.description!, maxLines: 1, overflow: TextOverflow.ellipsis, style: uiText(t, size: 12, color: t.textFaint))),
+                ],
+                if (it.detail != null) ...[const SizedBox(width: 8), Text(it.detail!, style: uiText(t, size: 11, color: t.textFaint))],
+              ]),
             ),
-            if (it.description != null && it.description!.isNotEmpty) ...[
-              const SizedBox(width: 10),
-              Flexible(child: Text(it.description!, maxLines: 1, overflow: TextOverflow.ellipsis, style: uiText(t, size: 12, color: t.textFaint))),
-            ],
-            if (it.detail != null) ...[const SizedBox(width: 8), Text(it.detail!, style: uiText(t, size: 11, color: t.textFaint))],
-            const Spacer(),
             if (it.keybinding != null) Kbd(it.keybinding!, small: true),
           ]),
         ),

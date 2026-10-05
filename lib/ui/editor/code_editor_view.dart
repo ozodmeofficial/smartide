@@ -305,7 +305,7 @@ class _CodeEditorViewState extends State<CodeEditorView> {
         SizedBox(
           width: 84,
           child: DecoratedBox(
-            decoration: BoxDecoration(border: Border(left: BorderSide(color: t.border.withValues(alpha: 0.5)))),
+            decoration: BoxDecoration(border: Border(left: BorderSide(color: t.border))),
             child: Minimap(controller: doc.controller, scroll: doc.scrollController.verticalScroller, theme: t, lineHeight: lineH, markers: markers),
           ),
         ),

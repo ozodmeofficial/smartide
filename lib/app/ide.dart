@@ -132,8 +132,10 @@ class Ide extends ChangeNotifier {
 
   // ------------------------------------------------------------------ layout
 
-  void showView(SideView v) {
-    if (sideView == v && sidebarVisible) {
+  /// Shows a side bar view. [toggle] (used by the activity bar) hides the
+  /// side bar when the view is already visible.
+  void showView(SideView v, {bool toggle = false}) {
+    if (toggle && sideView == v && sidebarVisible) {
       sidebarVisible = false;
     } else {
       sideView = v;
