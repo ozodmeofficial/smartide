@@ -58,7 +58,7 @@
    - `SmartIDE-x.y.z-portable-x64.zip` — o'rnatmasdan ishlatish uchun: oching va `SmartIDE.exe` ni ishga tushiring.
 2. Birinchi ishga tushirishda SmartIDE kompyuteringizdagi kompilyator va dasturlarni o'zi topadi (**Run and Tools** paneli).
 
-**Hajmi:** o'rnatuvchi LZMA2 bilan siqilgan (taxminan 12–16 MB). Faqat JetBrains Mono shrifti ilova ichida keladi; qolgan shriftlar va qo'shimcha kengaytmalar kerak bo'lganda yuklanadi. Release build `--obfuscate`, `--split-debug-info` va ikonkalar tree-shaking bilan yig'iladi.
+**Hajmi:** o'rnatuvchi LZMA2 bilan siqilgan (**~10.6 MB**; portable ZIP ~12 MB). Faqat JetBrains Mono shrifti ilova ichida keladi; qolgan shriftlar va qo'shimcha kengaytmalar kerak bo'lganda yuklanadi. Release build `--obfuscate`, `--split-debug-info` va ikonkalar tree-shaking bilan yig'iladi.
 
 ## ⌨️ Asosiy tezkor tugmalar
 
