@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "extensions": [
+    {
+      "id": "community.themes-midnight",
+      "name": "Midnight Theme Pack",
+      "description": "Five deep, low-glare dark themes: Moonlight, Horizon, Vitesse Dark, Oxocarbon and Poimandres.",
+      "category": "theme",
+      "color": "#7AA2F7",
+      "version": "1.0.0",
+      "publisher": "SmartIDE Community",
+      "features": ["Moonlight", "Horizon", "Vitesse Dark", "Oxocarbon", "Poimandres"],
+      "url": "https://raw.githubusercontent.com/ozodmeofficial/smartide/main/extensions/packs/themes-midnight.json"
+    },
+    {
+      "id": "community.themes-daylight",
+      "name": "Daylight Theme Pack",
+      "description": "Soft light themes for bright rooms: Vitesse Light, Ayu Light, Quiet Light and Paper.",
+      "category": "theme",
+      "color": "#E6B450",
+      "version": "1.0.0",
+      "publisher": "SmartIDE Community",
+      "features": ["Vitesse Light", "Ayu Light", "Quiet Light", "Paper"],
+      "url": "https://raw.githubusercontent.com/ozodmeofficial/smartide/main/extensions/packs/themes-daylight.json"
+    },
+    {
+      "id": "community.snippets-competitive",
+      "name": "Competitive Programming Snippets",
+      "description": "Fast I/O templates and algorithm snippets for C++ and Python (olympiad / LeetCode style).",
+      "category": "language",
+      "color": "#00599C",
+      "version": "1.0.0",
+      "publisher": "SmartIDE Community",
+      "features": ["cp: C++ fast template", "bfs, dfs, dsu, binsearch", "Python fast input"],
+      "url": "https://raw.githubusercontent.com/ozodmeofficial/smartide/main/extensions/packs/snippets-competitive.json"
+    }
+  ]
+}

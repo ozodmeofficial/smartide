@@ -1,0 +1,39 @@
+{
+  "id": "community.snippets-competitive",
+  "snippets": {
+    "cpp": [
+      {
+        "prefix": "cp",
+        "label": "Competitive C++ template",
+        "body": "#include <bits/stdc++.h>\nusing namespace std;\nusing ll = long long;\n\nint main() {\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr);\n\t${0}\n\treturn 0;\n}"
+      },
+      {
+        "prefix": "bfs",
+        "label": "Breadth-first search",
+        "body": "vector<int> dist(${1:n}, -1);\nqueue<int> q;\nq.push(${2:start});\ndist[${2:start}] = 0;\nwhile (!q.empty()) {\n\tint v = q.front(); q.pop();\n\tfor (int u : ${3:adj}[v]) if (dist[u] == -1) {\n\t\tdist[u] = dist[v] + 1;\n\t\tq.push(u);\n\t}\n}"
+      },
+      {
+        "prefix": "dsu",
+        "label": "Disjoint set union",
+        "body": "struct DSU {\n\tvector<int> p, r;\n\tDSU(int n) : p(n), r(n, 0) { iota(p.begin(), p.end(), 0); }\n\tint find(int x) { return p[x] == x ? x : p[x] = find(p[x]); }\n\tbool unite(int a, int b) {\n\t\ta = find(a); b = find(b);\n\t\tif (a == b) return false;\n\t\tif (r[a] < r[b]) swap(a, b);\n\t\tp[b] = a; if (r[a] == r[b]) r[a]++;\n\t\treturn true;\n\t}\n};"
+      },
+      {
+        "prefix": "binsearch",
+        "label": "Binary search on answer",
+        "body": "long long lo = ${1:0}, hi = ${2:1e18};\nwhile (lo < hi) {\n\tlong long mid = lo + (hi - lo) / 2;\n\tif (${3:check}(mid)) hi = mid; else lo = mid + 1;\n}"
+      }
+    ],
+    "python": [
+      {
+        "prefix": "fastio",
+        "label": "Fast input",
+        "body": "import sys\ninput = sys.stdin.readline\n\n${0}"
+      },
+      {
+        "prefix": "cpy",
+        "label": "Competitive Python template",
+        "body": "import sys\nfrom collections import defaultdict, deque, Counter\ninput = sys.stdin.readline\n\n\ndef solve():\n    ${0:pass}\n\n\nfor _ in range(int(input())):\n    solve()"
+      }
+    ]
+  }
+}

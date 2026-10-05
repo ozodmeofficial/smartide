@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,6 +8,7 @@ import 'package:smartide/app/quick_pick.dart';
 import 'package:smartide/core/commands.dart';
 import 'package:smartide/core/languages.dart';
 import 'package:smartide/core/settings.dart';
+import 'package:smartide/services/extension_service.dart';
 import 'package:smartide/theme/fonts.dart';
 import 'package:smartide/theme/themes.dart';
 import 'package:smartide/ui/editor/code_editor_view.dart';
@@ -117,5 +121,16 @@ void main() {
     final TextSpan hello = parts.firstWhere((p) => p.text == 'hello');
     expect(hello.style!.decoration, TextDecoration.underline);
     expect(parts.firstWhere((p) => p.text == 'def ').style!.color, const Color(0xFFFF0000));
+  });
+
+  test('online catalog theme packs parse into themes', () {
+    final Map<String, dynamic> catalog = jsonDecode(File('extensions/catalog.json').readAsStringSync()) as Map<String, dynamic>;
+    expect((catalog['extensions'] as List), isNotEmpty);
+    for (final String f in ['themes-midnight', 'themes-daylight']) {
+      final Map<String, dynamic> pack = jsonDecode(File('extensions/packs/$f.json').readAsStringSync()) as Map<String, dynamic>;
+      for (final dynamic t in pack['themes'] as List) {
+        expect(ExtensionService.themeFromJson(t as Map<String, dynamic>), isNotNull, reason: '${t['id']}');
+      }
+    }
   });
 }

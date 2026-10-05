@@ -1,0 +1,9 @@
+{
+  "id": "community.themes-daylight",
+  "themes": [
+    {"id": "vitesse-light", "name": "Vitesse Light", "dark": false, "bg": "#FFFFFF", "chrome": "#F7F7F7", "fg": "#393A34", "accent": "#1C6B48", "comment": "#A0ADA0", "keyword": "#1E754F", "string": "#B56959", "number": "#2F798A", "function": "#59873A", "type": "#2E8F82", "variable": "#B07D48"},
+    {"id": "ayu-light", "name": "Ayu Light", "dark": false, "bg": "#FCFCFC", "chrome": "#F3F4F5", "fg": "#5C6166", "accent": "#FFAA33", "comment": "#ADAEB1", "keyword": "#FA8D3E", "string": "#86B300", "number": "#A37ACC", "function": "#F2AE49", "type": "#399EE6", "variable": "#5C6166"},
+    {"id": "quiet-light", "name": "Quiet Light", "dark": false, "bg": "#F5F5F5", "chrome": "#EDEDED", "fg": "#333333", "accent": "#7A3E9D", "comment": "#AAAAAA", "keyword": "#4B83CD", "string": "#448C27", "number": "#AB6526", "function": "#AA3731", "type": "#7A3E9D", "variable": "#7A3E9D"},
+    {"id": "paper", "name": "Paper", "dark": false, "bg": "#F2EEDE", "chrome": "#E9E4D0", "fg": "#2B2B2B", "accent": "#B85C38", "comment": "#8C8C7A", "keyword": "#7B3E8E", "string": "#556B2F", "number": "#A0522D", "function": "#2F5D8C", "type": "#8B6914", "variable": "#2B2B2B"}
+  ]
+}

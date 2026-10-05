@@ -1,0 +1,10 @@
+{
+  "id": "community.themes-midnight",
+  "themes": [
+    {"id": "moonlight", "name": "Moonlight", "dark": true, "bg": "#212337", "chrome": "#1E2030", "fg": "#C8D3F5", "accent": "#82AAFF", "comment": "#7A88CF", "keyword": "#C099FF", "string": "#C3E88D", "number": "#FF966C", "function": "#82AAFF", "type": "#FFC777", "variable": "#C8D3F5", "tag": "#FF757F", "operator": "#86E1FC"},
+    {"id": "horizon", "name": "Horizon", "dark": true, "bg": "#1C1E26", "chrome": "#16161C", "fg": "#D5D8DA", "accent": "#E95378", "comment": "#6C6F93", "keyword": "#B877DB", "string": "#FAB795", "number": "#F09483", "function": "#25B0BC", "type": "#FAC29A", "variable": "#E95678", "tag": "#E95678"},
+    {"id": "vitesse-dark", "name": "Vitesse Dark", "dark": true, "bg": "#121212", "chrome": "#0E0E0E", "fg": "#DBD7CA", "accent": "#4D9375", "comment": "#758575", "keyword": "#4D9375", "string": "#C98A7D", "number": "#4C9A91", "function": "#80A665", "type": "#5DA994", "variable": "#BD976A", "constant": "#C99076"},
+    {"id": "oxocarbon", "name": "Oxocarbon", "dark": true, "bg": "#161616", "chrome": "#0F0F0F", "fg": "#DDE1E6", "accent": "#78A9FF", "comment": "#6F6F6F", "keyword": "#78A9FF", "string": "#BE95FF", "number": "#82CFFF", "function": "#FF7EB6", "type": "#3DDBD9", "variable": "#DDE1E6"},
+    {"id": "poimandres", "name": "Poimandres", "dark": true, "bg": "#1B1E28", "chrome": "#171922", "fg": "#A6ACCD", "accent": "#5DE4C7", "comment": "#767C9D", "keyword": "#91B4D5", "string": "#5DE4C7", "number": "#5DE4C7", "function": "#ADD7FF", "type": "#FFFAC2", "variable": "#E4F0FB"}
+  ]
+}
